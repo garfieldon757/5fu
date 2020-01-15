@@ -3,7 +3,7 @@
 	"publisher": "oliverfan",
 	"displayName": "五福",
 	"description": "alipay 5-fu QRCode generator",
-	"version": "0.0.6",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
