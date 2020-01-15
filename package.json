@@ -1,0 +1,66 @@
+{
+	"name": "5fu",
+	"publisher": "oliverfan",
+	"displayName": "五福",
+	"description": "alipay 5-fu QRCode generator",
+	"version": "0.0.6",
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+  "author": {
+      "name": "oliverfan"
+  },
+	"categories": [
+		"Other"
+	],
+  "icon": "images/icon.jpg",
+  "galleryBanner": {
+      "color": "#C80000",
+      "theme": "dark"
+  },
+	"activationEvents": [ 
+		"onCommand:extension.5fu"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.5fu",
+				"title": "5fu"
+			}
+		],
+		"keybindings": [{
+			"command": "extension.5fu",
+			"key": "ctrl+5",
+			"mac": "cmd+5"
+		}],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "package-explorer",
+          "title": "Package Explorer",
+          "icon": "images/fu.svg"
+        }
+      ]
+    }
+	},
+	"scripts": {
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^12.11.7",
+		"@types/vscode": "^1.41.0",
+		"eslint": "^6.6.0",
+		"glob": "^7.1.5",
+		"mocha": "^6.2.2",
+		"typescript": "^3.6.4",
+		"vscode-test": "^1.2.2"
+	},
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/garfieldon757/5fu.git"
+  },
+  "homepage": "https://garfieldon757.github.io/"
+}
