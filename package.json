@@ -34,6 +34,15 @@
 			"key": "ctrl+5",
 			"mac": "cmd+5"
 		}],
+    "views": {
+      "package-explorer": [
+        {
+          "id": "nodeDependencies",
+          "name": "Node Dependencies",
+          "when": "explorer"
+        }
+      ]
+    },
     "viewsContainers": {
       "activitybar": [
         {

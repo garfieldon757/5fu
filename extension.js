@@ -1,7 +1,14 @@
+/* eslint-disable no-unreachable */
 // 'vscode'模块包含了VS Code extensibility API
 // 按下述方式导入这个模块
 const vscode = require('vscode');
 
+// function getWebviewContent() {
+//   return "<!DOCTYPE html><html lang='en'><body><div>thisisadiv...</div><img src='images/icon.jpeg' width='300' /></body></html>";
+// }
+function getWebviewContent() {
+  return `<img src="https://garfieldon757.github.io/images/fu.svg" width="300" height='300' />`;
+}
 // 一旦你的插件激活，vscode会立刻调用下述方法
 /**
  * @param {vscode.ExtensionContext} context
@@ -17,7 +24,27 @@ function activate(context) {
 		// 把你的代码写在这里，每次命令执行时都会调用这里的代码
     // ...
     // 给用户显示一个消息提示
-		vscode.window.showInformationMessage('Hello 5fu!');
+		// vscode.window.showInformationMessage('Hello 5fu!');
+    const panel = vscode.window.createWebviewPanel(
+      '福', // 只供内部使用，这个webview的标识
+      '福', // 给用户显示的面板标题
+      vscode.ViewColumn.One, // 给新的webview面板一个编辑器视图
+      {} // Webview选项。我们稍后会用上
+    );
+    // 设置HTML内容
+    panel.webview.html = getWebviewContent();
+
+    // 5秒后，程序性地关闭webview面板
+    const timeout = setTimeout(() => panel.dispose(), 5000);
+    panel.onDidDispose(
+      () => {
+        // 在第五秒结束之前处理用户手动的关闭动作
+        clearTimeout(timeout);
+      },
+      null,
+      context.subscriptions
+    );
+
 	});
 
 	context.subscriptions.push(disposable);
